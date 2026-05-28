@@ -1,0 +1,102 @@
+version: "3.9"
+
+networks:
+  devops_overlay:
+    driver: overlay
+    attachable: true
+
+volumes:
+  db_data:
+  prometheus_data:
+
+services:
+
+  app:
+    image: ${DOCKER_USERNAME}/devops-so2-app:latest
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    environment:
+      - APP_ENV=production
+      - PORT=5000
+    networks:
+      - devops_overlay
+    healthcheck:
+      test: ["CMD", "python", "-c",
+        "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: ingress
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+    configs:
+      - source: nginx_config
+        target: /etc/nginx/conf.d/app.conf
+    networks:
+      - devops_overlay
+    depends_on:
+      - app
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: devopsdb
+      POSTGRES_USER: devops
+      POSTGRES_PASSWORD: devops123
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - devops_overlay
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+        condition: on-failure
+
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    ports:
+      - "9090:9090"
+    volumes:
+      - prometheus_data:/prometheus
+    networks:
+      - devops_overlay
+    deploy:
+      replicas: 1
+
+  grafana:
+    image: grafana/grafana:11.0.0
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+    networks:
+      - devops_overlay
+    deploy:
+      replicas: 1
+
+configs:
+  nginx_config:
+    file: ./nginx/nginx.conf
