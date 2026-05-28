@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================
-#  deploy.sh – Script de despliegue automatizado
+#  deploy.sh  Script de despliegue automatizado
 #  Proyecto DevOps SO2
 # ============================================================
 set -e
@@ -10,22 +10,22 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-log()  { echo -e "${GREEN}[✔]${NC} $1"; }
+log()  { echo -e "${GREEN}[]${NC} $1"; }
 warn() { echo -e "${YELLOW}[!]${NC} $1"; }
-err()  { echo -e "${RED}[✘]${NC} $1"; exit 1; }
+err()  { echo -e "${RED}[]${NC} $1"; exit 1; }
 
 echo ""
 echo "=============================================="
-echo "   DEPLOY – Infraestructura DevOps SO2"
+echo "   DEPLOY  Infraestructura DevOps SO2"
 echo "=============================================="
 echo ""
 
-# ── 1. Verificar Docker ──────────────────────────────────────
+#  1. Verificar Docker 
 log "Verificando Docker..."
-docker info > /dev/null 2>&1 || err "Docker no está corriendo. Inícialo primero."
+docker info > /dev/null 2>&1 || err "Docker no est corriendo. Incialo primero."
 log "Docker OK"
 
-# ── 2. Verificar modo Swarm ──────────────────────────────────
+#  2. Verificar modo Swarm 
 SWARM_STATUS=$(docker info --format '{{.Swarm.LocalNodeState}}' 2>/dev/null)
 if [ "$SWARM_STATUS" != "active" ]; then
     warn "Swarm no activo. Inicializando Docker Swarm..."
@@ -35,14 +35,14 @@ else
     log "Docker Swarm activo"
 fi
 
-# ── 3. Variables de entorno ──────────────────────────────────
+#  3. Variables de entorno 
 export DOCKER_USERNAME=${DOCKER_USERNAME:-"yourusername"}
 export IMAGE_TAG=${IMAGE_TAG:-"latest"}
 
 warn "Usando imagen: ${DOCKER_USERNAME}/devops-so2-app:${IMAGE_TAG}"
 
-# ── 4. Build de imágenes locales ─────────────────────────────
-log "Construyendo imagen de la aplicación..."
+#  4. Build de imgenes locales 
+log "Construyendo imagen de la aplicacin..."
 docker build -t ${DOCKER_USERNAME}/devops-so2-app:${IMAGE_TAG} ./app
 log "Imagen construida"
 
@@ -50,28 +50,28 @@ log "Construyendo imagen de Nginx..."
 docker build -t devops-so2-nginx:latest ./nginx
 log "Nginx construido"
 
-# ── 5. Deploy del stack ──────────────────────────────────────
+#  5. Deploy del stack 
 log "Desplegando stack en Docker Swarm..."
 docker stack deploy -c docker-compose.yml devops_stack
 log "Stack desplegado"
 
-# ── 6. Esperar servicios ─────────────────────────────────────
+#  6. Esperar servicios 
 log "Esperando que los servicios inicien (30s)..."
 sleep 30
 
-# ── 7. Verificar servicios ───────────────────────────────────
+#  7. Verificar servicios 
 echo ""
 echo "Estado de los servicios:"
 docker stack services devops_stack
 
-# ── 8. Health check ──────────────────────────────────────────
+#  8. Health check 
 echo ""
-log "Verificando health check de la aplicación..."
+log "Verificando health check de la aplicacin..."
 HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/health || echo "000")
 if [ "$HTTP_CODE" = "200" ]; then
-    log "¡Aplicación respondiendo correctamente! HTTP $HTTP_CODE"
+    log "Aplicacin respondiendo correctamente! HTTP $HTTP_CODE"
 else
-    warn "Aplicación retornó HTTP $HTTP_CODE – puede estar iniciando todavía"
+    warn "Aplicacin retorn HTTP $HTTP_CODE  puede estar iniciando todava"
 fi
 
 echo ""

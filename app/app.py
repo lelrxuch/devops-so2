@@ -34,21 +34,21 @@ HTML_TEMPLATE = """
 </head>
 <body>
     <header>
-        <h1>🚀 Infraestructura DevOps en la Nube</h1>
-        <p>Proyecto Final – Sistemas Operativos II</p>
+        <h1> Infraestructura DevOps en la Nube</h1>
+        <p>Proyecto Final  Sistemas Operativos II</p>
         <br>
-        <span class="badge">✅ Sistema Operativo</span>
+        <span class="badge"> Sistema Operativo</span>
     </header>
     <div class="container">
         <div class="card">
-            <h2>📊 Estado del Sistema</h2>
+            <h2> Estado del Sistema</h2>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="label">Fecha y Hora</div>
                     <div class="value">{{ timestamp }}</div>
                 </div>
                 <div class="info-item">
-                    <div class="label">Versión de App</div>
+                    <div class="label">Versin de App</div>
                     <div class="value">v1.0.0</div>
                 </div>
                 <div class="info-item">
@@ -62,20 +62,20 @@ HTML_TEMPLATE = """
             </div>
         </div>
         <div class="card">
-            <h2>🛠️ Tecnologías Implementadas</h2>
+            <h2> Tecnologas Implementadas</h2>
             <div class="tech-list">
-                <span class="tech">🐳 Docker</span>
-                <span class="tech">🐍 Python Flask</span>
-                <span class="tech">⚙️ GitHub Actions</span>
-                <span class="tech">🌐 Nginx</span>
-                <span class="tech">🗄️ PostgreSQL</span>
-                <span class="tech">☁️ Render.com</span>
-                <span class="tech">📦 Docker Hub</span>
-                <span class="tech">🔄 CI/CD Pipeline</span>
+                <span class="tech"> Docker</span>
+                <span class="tech"> Python Flask</span>
+                <span class="tech"> GitHub Actions</span>
+                <span class="tech"> Nginx</span>
+                <span class="tech"> PostgreSQL</span>
+                <span class="tech"> Render.com</span>
+                <span class="tech"> Docker Hub</span>
+                <span class="tech"> CI/CD Pipeline</span>
             </div>
         </div>
         <div class="card">
-            <h2>🔗 Endpoints Disponibles</h2>
+            <h2> Endpoints Disponibles</h2>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="label">GET /</div>
@@ -91,12 +91,12 @@ HTML_TEMPLATE = """
                 </div>
                 <div class="info-item">
                     <div class="label">GET /api/metrics</div>
-                    <div class="value">Métricas básicas</div>
+                    <div class="value">Mtricas bsicas</div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>Universidad Mariano Gálvez &bull; Sistemas Operativos II &bull; 2025</footer>
+    <footer>Universidad Mariano Glvez &bull; Sistemas Operativos II &bull; 2025</footer>
 </body>
 </html>
 """

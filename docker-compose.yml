@@ -10,7 +10,7 @@ volumes:
 
 services:
 
-  # ── Flask Application ──────────────────────────────────────────────────────
+  #  Flask Application 
   app:
     build:
       context: ./app
@@ -35,7 +35,7 @@ services:
       retries: 3
       start_period: 10s
 
-  # ── Nginx Reverse Proxy ────────────────────────────────────────────────────
+  #  Nginx Reverse Proxy 
   nginx:
     build:
       context: ./nginx
@@ -49,7 +49,7 @@ services:
     depends_on:
       - app
 
-  # ── PostgreSQL Database ────────────────────────────────────────────────────
+  #  PostgreSQL Database 
   db:
     image: postgres:16-alpine
     container_name: postgres_db
@@ -68,7 +68,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # ── Prometheus Monitoring ──────────────────────────────────────────────────
+  #  Prometheus Monitoring 
   prometheus:
     image: prom/prometheus:v2.53.0
     container_name: prometheus
@@ -85,7 +85,7 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.enable-lifecycle'
 
-  # ── Grafana Dashboard ──────────────────────────────────────────────────────
+  #  Grafana Dashboard 
   grafana:
     image: grafana/grafana:11.0.0
     container_name: grafana
