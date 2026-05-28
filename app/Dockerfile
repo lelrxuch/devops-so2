@@ -19,7 +19,7 @@ WORKDIR /app
 COPY --from=builder /install /usr/local
 
 # Copy application source
-nano app/Dockerfile
+COPY app.py .
 
 # Set ownership
 RUN chown -R appuser:appuser /app
