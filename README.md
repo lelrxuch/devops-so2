@@ -158,3 +158,4 @@ devops-so2/
 Proyecto Final – Sistemas Operativos II  
 Universidad Mariano Gálvez de Guatemala  
 2025
+# Pipeline test
