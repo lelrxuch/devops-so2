@@ -4,13 +4,13 @@
 [![CI/CD Pipeline](https://github.com/TU_USUARIO/devops-so2/actions/workflows/cicd.yml/badge.svg)](https://github.com/TU_USUARIO/devops-so2/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/TU_USUARIO/devops-so2-app)](https://hub.docker.com/r/TU_USUARIO/devops-so2-app)
 
-##  Descripcin
+##  Descripcion
 
 Infraestructura DevOps completa implementada con Docker, GitHub Actions CI/CD, Nginx como reverse proxy, PostgreSQL, y monitoreo con Prometheus + Grafana. Desplegada en **Render.com** (cloud gratuito).
 
-##  Tecnologas
+##  Tecnologias
 
-| Categora | Tecnologa |
+| Categoria | Tecnologia |
 |-----------|-----------|
 | Contenedores | Docker, Docker Swarm |
 | CI/CD | GitHub Actions |
@@ -38,7 +38,7 @@ PostgreSQL (puerto 5432)
 GitHub  GitHub Actions  Docker Hub  Render.com
 ```
 
-##  Inicio Rpido (local)
+##  Inicio Rapido (local)
 
 ```bash
 # 1. Clonar el repositorio
@@ -70,7 +70,7 @@ open http://localhost
 
 ##  Pipeline CI/CD
 
-El pipeline se activa automticamente con cada `git push` a `main`:
+El pipeline se activa automaticamente con cada `git push` a `main`:
 
 ```
 Push a main
@@ -91,15 +91,15 @@ Push a main
 [CD] Push a Docker Hub
     
     
-[CD] Deploy automtico a Render.com
+[CD] Deploy automatico a Render.com
     
     
-[CD] Verificacin final
+[CD] Verificacion final
 ```
 
 ### Secrets necesarios en GitHub
 
-| Secret | Descripcin |
+| Secret | Descripcion |
 |--------|-------------|
 | `DOCKER_USERNAME` | Tu usuario de Docker Hub |
 | `DOCKER_TOKEN` | Token de acceso de Docker Hub |
