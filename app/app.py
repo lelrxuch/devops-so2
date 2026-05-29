@@ -12,42 +12,44 @@ HTML_TEMPLATE = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Project - SO2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f9fafb; color: #111827; }
-header { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 2rem; text-align: center; }
-header h1 { font-size: 1.5rem; font-weight: 600; color: #111827; letter-spacing: -0.02em; }
-header p { color: #6b7280; margin-top: 0.3rem; font-size: 0.9rem; }
-.container { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
-.card { background: #ffffff; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid #e5e7eb; }
-.card h2 { color: #374151; margin-bottom: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
-.badge { display: inline-block; background: #f0fdf4; color: #166534; padding: 0.2rem 0.65rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; border: 1px solid #bbf7d0; }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-.info-item { background: #f9fafb; border-radius: 6px; padding: 0.85rem 1rem; border: 1px solid #f3f4f6; }
-.info-item .label { color: #9ca3af; font-size: 0.72rem; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.info-item .value { color: #111827; font-weight: 500; font-size: 0.9rem; }
-.tech-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.tech { background: #f3f4f6; color: #374151; padding: 0.25rem 0.7rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid #e5e7eb; }
-footer { text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.8rem; border-top: 1px solid #f3f4f6; margin-top: 1rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Press Start 2P', monospace; background: #0a0a0a; color: #e2e8f0; image-rendering: pixelated; }
+        header { background: #111111; border-bottom: 4px solid #facc15; padding: 2rem; text-align: center; }
+        header h1 { font-size: 1rem; color: #facc15; text-shadow: 3px 3px 0px #78350f; line-height: 1.8; }
+        header p { color: #a3a3a3; margin-top: 0.8rem; font-size: 0.5rem; line-height: 2; }
+        .container { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
+        .card { background: #111111; padding: 1.5rem; margin-bottom: 1.5rem; border: 4px solid #facc15; box-shadow: 6px 6px 0px #78350f; }
+        .card h2 { color: #facc15; margin-bottom: 1rem; font-size: 0.5rem; letter-spacing: 0.1em; border-bottom: 2px solid #facc15; padding-bottom: 0.5rem; }
+        .badge { display: inline-block; background: #14532d; color: #86efac; padding: 0.3rem 0.8rem; font-size: 0.45rem; border: 2px solid #86efac; box-shadow: 3px 3px 0px #052e16; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .info-item { background: #1a1a1a; padding: 0.85rem 1rem; border: 2px solid #374151; box-shadow: 3px 3px 0px #000; }
+        .info-item .label { color: #6b7280; font-size: 0.4rem; margin-bottom: 0.4rem; letter-spacing: 0.05em; }
+        .info-item .value { color: #facc15; font-size: 0.5rem; line-height: 1.8; }
+        .tech-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .tech { background: #1a1a1a; color: #22d3ee; padding: 0.3rem 0.7rem; font-size: 0.45rem; border: 2px solid #22d3ee; box-shadow: 3px 3px 0px #000; }
+        footer { text-align: center; padding: 2rem; color: #6b7280; font-size: 0.4rem; border-top: 4px solid #facc15; margin-top: 1rem; line-height: 2.5; }
     </style>
 </head>
 <body>
     <header>
-        <h1> Infraestructura DevOps en la Nube</h1>
-        <p>Proyecto Final  Sistemas Operativos II</p>
+        <h1>Infraestructura DevOps en la Nube</h1>
+        <p>Proyecto Final - Sistemas Operativos II</p>
         <br>
-        <span class="badge"> Sistema Operativo</span>
+        <span class="badge">Sistema Operativo</span>
     </header>
     <div class="container">
         <div class="card">
-            <h2> Estado del Sistema</h2>
+            <h2>Estado del Sistema</h2>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="label">Fecha y Hora</div>
                     <div class="value">{{ timestamp }}</div>
                 </div>
                 <div class="info-item">
-                    <div class="label">Versin de App</div>
+                    <div class="label">Version de App</div>
                     <div class="value">v1.0.0</div>
                 </div>
                 <div class="info-item">
@@ -55,26 +57,26 @@ footer { text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.8rem; b
                     <div class="value">{{ env }}</div>
                 </div>
                 <div class="info-item">
-                    <div class="label">Hostname (Contenedor)</div>
+                    <div class="label">Hostname</div>
                     <div class="value">{{ hostname }}</div>
                 </div>
             </div>
         </div>
         <div class="card">
-            <h2> Tecnologas Implementadas</h2>
+            <h2>Tecnologias Implementadas</h2>
             <div class="tech-list">
-                <span class="tech"> Docker</span>
-                <span class="tech"> Python Flask</span>
-                <span class="tech"> GitHub Actions</span>
-                <span class="tech"> Nginx</span>
-                <span class="tech"> PostgreSQL</span>
-                <span class="tech"> Render.com</span>
-                <span class="tech"> Docker Hub</span>
-                <span class="tech"> CI/CD Pipeline</span>
+                <span class="tech">Docker</span>
+                <span class="tech">Python Flask</span>
+                <span class="tech">GitHub Actions</span>
+                <span class="tech">Nginx</span>
+                <span class="tech">PostgreSQL</span>
+                <span class="tech">Render.com</span>
+                <span class="tech">Docker Hub</span>
+                <span class="tech">CI/CD Pipeline</span>
             </div>
         </div>
         <div class="card">
-            <h2> Endpoints Disponibles</h2>
+            <h2>Endpoints Disponibles</h2>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="label">GET /</div>
