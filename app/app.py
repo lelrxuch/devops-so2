@@ -13,23 +13,22 @@ HTML_TEMPLATE = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Project - SO2</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; }
-        header { background: linear-gradient(135deg, #1e40af, #7c3aed); padding: 2rem; text-align: center; }
-        header h1 { font-size: 2rem; font-weight: 700; }
-        header p { color: #bfdbfe; margin-top: 0.5rem; }
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: #1e293b; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #334155; }
-        .card h2 { color: #60a5fa; margin-bottom: 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .badge { display: inline-block; background: #166534; color: #86efac; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; }
-        .badge.blue { background: #1e3a5f; color: #93c5fd; }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .info-item { background: #0f172a; border-radius: 8px; padding: 1rem; }
-        .info-item .label { color: #94a3b8; font-size: 0.8rem; margin-bottom: 0.25rem; }
-        .info-item .value { color: #f1f5f9; font-weight: 600; }
-        .tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .tech { background: #1e3a5f; color: #93c5fd; padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.85rem; }
-        footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f9fafb; color: #111827; }
+header { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 2rem; text-align: center; }
+header h1 { font-size: 1.5rem; font-weight: 600; color: #111827; letter-spacing: -0.02em; }
+header p { color: #6b7280; margin-top: 0.3rem; font-size: 0.9rem; }
+.container { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
+.card { background: #ffffff; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid #e5e7eb; }
+.card h2 { color: #374151; margin-bottom: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.badge { display: inline-block; background: #f0fdf4; color: #166534; padding: 0.2rem 0.65rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500; border: 1px solid #bbf7d0; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.info-item { background: #f9fafb; border-radius: 6px; padding: 0.85rem 1rem; border: 1px solid #f3f4f6; }
+.info-item .label { color: #9ca3af; font-size: 0.72rem; margin-bottom: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.info-item .value { color: #111827; font-weight: 500; font-size: 0.9rem; }
+.tech-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tech { background: #f3f4f6; color: #374151; padding: 0.25rem 0.7rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid #e5e7eb; }
+footer { text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.8rem; border-top: 1px solid #f3f4f6; margin-top: 1rem; }
     </style>
 </head>
 <body>
@@ -91,12 +90,12 @@ HTML_TEMPLATE = """
                 </div>
                 <div class="info-item">
                     <div class="label">GET /api/metrics</div>
-                    <div class="value">Mtricas bsicas</div>
+                    <div class="value">Metricas basicas</div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>Universidad Mariano Glvez &bull; Sistemas Operativos II &bull; 2025</footer>
+    <footer>Universidad Mariano Galvez &bull; Sistemas Operativos II &bull; 2025</footer>
 </body>
 </html>
 """
