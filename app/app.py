@@ -97,7 +97,7 @@ HTML_TEMPLATE = """
             </div>
         </div>
     </div>
-    <footer>Universidad Mariano Galvez &bull; Sistemas Operativos II &bull; 2025</footer>
+    <footer>Universidad Mariano Galvez &bull; Sistemas Operativos II &bull; 2026</footer>
 </body>
 </html>
 """
